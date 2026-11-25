@@ -1,0 +1,107 @@
+{
+  "name": "zorya-launcher",
+  "version": "0.1.0",
+  "description": "Zorya Launcher — a fork focused on Horizon (Minecraft 26.3 in Rust), instances, mods and resource packs",
+  "author": "Zorya Launcher",
+  "main": "electron/main.js",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k -n VITE,ELECTRON -c blue,green \"vite\" \"wait-on tcp:5173 && cross-env NODE_ENV=development electron .\"",
+    "build:renderer": "vite build",
+    "build:agent": "powershell -ExecutionPolicy Bypass -File zorya-agent/build.ps1",
+    "start": "electron .",
+    "dist": "npm run build:renderer && electron-builder"
+  },
+  "devDependencies": {
+    "@fontsource/manrope": "^5.3.0",
+    "@fontsource/unbounded": "^5.3.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "dompurify": "^3.4.16",
+    "electron": "^44.11.3",
+    "electron-builder": "^26.18.0",
+    "marked": "^18.0.14",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "skinview-utils": "^0.7.1",
+    "skinview3d": "^3.4.2",
+    "three": "^0.156.1",
+    "vite": "^7.3.8",
+    "wait-on": "^8.0.1"
+  },
+  "dependencies": {
+    "adm-zip": "^0.6.1",
+    "electron-store": "^8.2.0"
+  },
+  "build": {
+    "appId": "com.zorya.launcher",
+    "productName": "Zorya Launcher",
+    "copyright": "Zorya Launcher",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**",
+      "electron/**",
+      "build/**",
+      "!build/tools/**",
+      "!build/agent/**"
+    ],
+    "extraResources": [
+      {
+        "from": "build/tools",
+        "to": "tools",
+        "filter": [
+          "rcedit-x64.exe",
+          "icon.ico"
+        ]
+      },
+      {
+        "from": "build/agent",
+        "to": "agent",
+        "filter": [
+          "zorya-agent.jar",
+          "zorya-core.jar"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "Zorya-Launcher-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "Zorya Launcher",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico"
+    },
+    "electronFuses": {
+      "runAsNode": false,
+      "enableNodeOptionsEnvironmentVariable": false,
+      "enableNodeCliInspectArguments": false,
+      "enableEmbeddedAsarIntegrityValidation": true,
+      "onlyLoadAppFromAsar": true
+    },
+    "electronLanguages": [
+      "ru",
+      "en-US"
+    ]
+  },
+  "overrides": {
+    "minimatch@>=7.0.0 <11.0.1": "^11.0.8"
+  }
+}
