@@ -1,0 +1,20 @@
+// Languages the game can be set to for new builds (the codes are Minecraft's own; the launcher writes them in the right letter case per version).
+export const GAME_LANGS = [
+  { value: '', label: 'Do not change (as the game decides)' },
+  { value: 'ru_ru', label: 'Russian' },
+  { value: 'uk_ua', label: 'Ukrainian' },
+  { value: 'be_by', label: 'Belarusian' },
+  { value: 'kk_kz', label: 'Kazakhsha' },
+  { value: 'en_us', label: 'English (US)' },
+  { value: 'en_gb', label: 'English (UK)' },
+  { value: 'de_de', label: 'Deutsch' },
+  { value: 'fr_fr', label: 'Français' },
+  { value: 'es_es', label: 'Español' },
+  { value: 'it_it', label: 'Italiano' },
+  { value: 'pl_pl', label: 'Polski' },
+  { value: 'pt_br', label: 'Português (Brasil)' },
+  { value: 'tr_tr', label: 'Türkçe' },
+  { value: 'zh_cn', label: '简体中文' },
+  { value: 'ja_jp', label: '日本語' },
+  { value: 'ko_kr', label: '한국어' },
+];
