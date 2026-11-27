@@ -1,0 +1,37 @@
+# dependencies and build output
+node_modules/
+dist/
+release/
+
+# editor / OS
+.idea/
+.vscode/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# logs, profiles, temporary files
+logs/
+*.log
+*.log.gz
+*.jar.log
+*.cpuprofile
+*.tmp
+*.part
+*.corrupt-*
+
+# the agent's compiled classes and its test output (build\agent\*.jar are what the installer takes)
+eternal-agent/out/
+eternal-agent/logs/
+
+# SECRETS: never commit. The signing and SSH keys live outside the project; these patterns are only a safety net.
+.env
+.env.*
+*.pem
+*.b64
+*.key
+*.pfx
+*.p12
+*private*
+id_rsa*
+id_ed25519*
