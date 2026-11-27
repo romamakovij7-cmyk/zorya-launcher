@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src data:;">
+<title>Zorya — мониторинг</title>
+<link rel="stylesheet" href="overlay.css">
+</head>
+<body>
+<div id="panel" data-mode="full">
+  <div class="head">
+    <span class="dot"></span>
+    <b class="brand">ETERNAL</b>
+    <span class="sub">мониторинг</span>
+    <span class="hint" id="hint">F9 — скрыть</span>
+  </div>
+
+  <div class="hero">
+    <div class="fps"><b id="fps">--</b><small>FPS</small></div>
+    <div class="side">
+      <div><span>среднее</span><b id="avg">--</b></div>
+      <div><span>1% low</span><b id="low">--</b></div>
+      <div><span>кадр</span><b id="ft">--</b></div>
+    </div>
+  </div>
+
+  <div class="graph-wrap">
+    <canvas id="graph" width="592" height="128"></canvas>
+    <span class="tag t60">60</span>
+    <span class="tag t30">30</span>
+    <span class="tag span">20 с</span>
+  </div>
+
+  <div class="full">
+    <div class="grid">
+      <div class="cell"><div class="k">Процессор</div><div class="v"><b id="cpu">--</b></div><i><u id="cpu-bar"></u></i></div>
+      <div class="cell"><div class="k">Видеокарта</div><div class="v"><b id="gpu">--</b><span class="temp" id="gpu-t"></span></div><i><u id="gpu-bar"></u></i></div>
+      <div class="cell"><div class="k">Память игры</div><div class="v"><b id="ram">--</b></div></div>
+      <div class="cell"><div class="k">Видеопамять</div><div class="v"><b id="vram">--</b></div></div>
+    </div>
+    <div class="cell wide"><div class="k">Java heap <em id="heap-t">--</em></div><i><u id="heap-bar"></u></i></div>
+    <div class="foot">
+      <div><span>TPS</span><b id="tps">--</b></div>
+      <div><span>сущности</span><b id="ent">--</b></div>
+      <div><span>чанки</span><b id="chk">--</b></div>
+    </div>
+  </div>
+</div>
+<script src="overlay.js"></script>
+</body>
+</html>
