@@ -1,0 +1,78 @@
+[
+  {
+    "id": "grass",
+    "name": "Блок травы"
+  },
+  {
+    "id": "diamond",
+    "name": "Алмаз"
+  },
+  {
+    "id": "sword",
+    "name": "Меч"
+  },
+  {
+    "id": "pickaxe",
+    "name": "Кирка"
+  },
+  {
+    "id": "creeper",
+    "name": "Крипер"
+  },
+  {
+    "id": "heart",
+    "name": "Сердце"
+  },
+  {
+    "id": "apple",
+    "name": "Яблоко"
+  },
+  {
+    "id": "tnt",
+    "name": "Динамит"
+  },
+  {
+    "id": "chest",
+    "name": "Сундук"
+  },
+  {
+    "id": "potion",
+    "name": "Зелье"
+  },
+  {
+    "id": "torch",
+    "name": "Факел"
+  },
+  {
+    "id": "pearl",
+    "name": "Жемчуг Края"
+  },
+  {
+    "id": "flame",
+    "name": "Пламя"
+  },
+  {
+    "id": "crown",
+    "name": "Корона"
+  },
+  {
+    "id": "bolt",
+    "name": "Молния"
+  },
+  {
+    "id": "book",
+    "name": "Книга"
+  },
+  {
+    "id": "earth",
+    "name": "Мир"
+  },
+  {
+    "id": "gear",
+    "name": "Шестерёнка"
+  },
+  {
+    "id": "anvil",
+    "name": "Наковальня"
+  }
+]
