@@ -1,0 +1,31 @@
+/* Вступление страницы лаунчера: голая страница, которая по кнопке превращается в настоящую. */
+#lnIntro { display: none; }
+html.ln-intro, html.ln-intro body { overflow: hidden; }
+html.ln-intro #lnIntro {
+  display: block; position: fixed; inset: 0; z-index: 9999; overflow: auto;
+  background: #fff; color: #000; font: 16px/1.4 "Times New Roman", Times, serif;
+  /* дыра растёт от кнопки (радиус --ir задаёт скрипт) и открывает настоящую страницу под ней */
+  -webkit-mask-image: radial-gradient(circle at var(--icx, 50%) var(--icy, 50%), transparent calc(var(--ir, 0px) - 1px), #000 var(--ir, 0px));
+  mask-image: radial-gradient(circle at var(--icx, 50%) var(--icy, 50%), transparent calc(var(--ir, 0px) - 1px), #000 var(--ir, 0px));
+}
+/* всё внутри — как будто сайт ещё без единой строчки CSS */
+#lnIntro * { all: revert; }
+#lnIntro .ln-plain { max-width: 640px; margin: 0 auto; padding: 24px 20px; }
+#lnIntro .ln-plain h1 { margin: .67em 0; font-size: 2em; }
+#lnIntro .ln-plain p { margin: 1em 0; }
+#lnIntro .ln-plain button { margin-right: 8px; }
+#lnIntro.is-go { animation: ln-flash .5s steps(1) 1; }
+#lnIntro.is-go .ln-plain { animation: ln-shake .5s steps(2) 1; }
+#lnIntro.is-fade { opacity: 0; transition: opacity .35s; }
+@keyframes ln-shake { 0% { transform: translate(0); } 25% { transform: translate(-6px, 2px); } 50% { transform: translate(5px, -3px); } 75% { transform: translate(-3px, 3px); } 100% { transform: none; } }
+@keyframes ln-flash { 0%, 100% { filter: none; } 30% { filter: invert(1); } 60% { filter: invert(1) hue-rotate(300deg); } }
+#lnRing { position: fixed; z-index: 10000; width: 0; height: 0; border-radius: 50%; transform: translate(-50%, -50%); pointer-events: none; border: 3px solid rgba(255, 205, 225, .95); box-shadow: 0 0 40px 8px rgba(227, 154, 169, .6), inset 0 0 40px 6px rgba(227, 154, 169, .35); }
+@media (prefers-reduced-motion: reduce) { #lnIntro.is-go, #lnIntro.is-go .ln-plain { animation: none; } }
+
+/* страница выше дождя и проявляется поверх него */
+.lp-main, .site-footer { position: relative; z-index: 1; }
+html.ln-appear .site-header { animation: ln-fadein 1.1s ease both; }
+html.ln-appear .lp-main, html.ln-appear .site-footer { animation: ln-rise 1.2s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes ln-fadein { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ln-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { html.ln-appear .site-header, html.ln-appear .lp-main, html.ln-appear .site-footer { animation: none; } }
