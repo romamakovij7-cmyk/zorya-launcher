@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Dev server only (Vite's React refresh injects an inline script). The production
+         build replaces this with a strict policy — see vite.config.js. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data: https:; img-src 'self' data: blob: https:; script-src 'self' 'unsafe-inline'; connect-src 'self' https: ws://localhost:5173;" />
+    <title>Zorya Launcher</title>
+    <link rel="icon" type="image/png" href="/src/assets/icon.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
