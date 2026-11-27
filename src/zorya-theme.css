@@ -1,0 +1,31 @@
+/* Zorya Launcher palette — overrides the fork's original theme tokens. */
+:root {
+  --wine: #5cb76b;
+  --rose: #9de7ab;
+  --wine-deep: #2f6f45;
+  --wine-rgb: 92, 183, 107;
+  --rose-rgb: 157, 231, 171;
+  --deep-rgb: 139, 124, 246;
+  --dark-rgb: 8, 14, 22;
+  --panel-rgb: 20, 32, 40;
+  --danger: #ff7b72;
+  --success: #5cb76b;
+  --warn: #ffb454;
+  --page-bg: #070b12;
+}
+html[data-style="liquid"] {
+  --wine: #5cb76b;
+  --rose: #9de7ab;
+  --wine-deep: #2f6f45;
+  --wine-rgb: 92, 183, 107;
+  --rose-rgb: 157, 231, 171;
+  --deep-rgb: 139, 124, 246;
+  --dark-rgb: 8, 14, 22;
+  --panel-rgb: 20, 32, 40;
+}
+html[data-style="liquid"] .bg-scene {
+  background:
+    radial-gradient(50% 45% at 78% 82%, rgba(139,124,246,.45), transparent 70%),
+    radial-gradient(45% 40% at 12% 88%, rgba(92,183,107,.28), transparent 70%),
+    linear-gradient(160deg, #0b1418 0%, #070b12 55%, #0a0716 100%);
+}
